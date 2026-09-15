@@ -4,13 +4,10 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    git \
-    && rm -rf /var/lib/apt/lists/*
-
 RUN uv venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
+
+RUN uv pip install --no-cache torch --index-url https://download.pytorch.org/whl/cpu
 
 COPY requirements.txt .
 RUN uv pip install --no-cache -r requirements.txt
