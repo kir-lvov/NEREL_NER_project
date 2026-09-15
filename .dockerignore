@@ -1,0 +1,15 @@
+__pycache__
+*.pyc
+.ipynb_checkpoints
+.git
+.gitignore
+.venv
+venv
+data
+models
+checkpoints
+*.log
+.env
+.vscode
+.idea
+README.md
